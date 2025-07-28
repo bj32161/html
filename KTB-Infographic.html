@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: KTB's Strategic Platform Decision</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Brilliant Blues -->
+    <!-- Application Structure Plan: The infographic follows a top-down narrative structure designed for executive review. It starts with the "Strategic Verdict" to immediately present the conclusion. It then flows into the key supporting pillars: "Financial Bottom Line" with a powerful cost comparison chart, "The AI Advantage" for the critical technology comparison, "Functionality Showdown" for feature parity, and finally "The Human Cost" to visualize migration disruption. This linear, story-driven approach was chosen to build a clear, logical case for the recommendation, making the complex data from the source report easily digestible in a single scroll. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Annual Licensing Costs -> Goal: Compare -> Viz: Stacked Bar Chart (Chart.js) -> Justification: Visually demonstrates how add-on costs (Teams, Copilot) dramatically alter the TCO, making the financial argument compelling.
+        - Report Info: ROI & Payback Figures -> Goal: Inform -> Viz: Large Number Callouts -> Justification: Highlights the most critical financial outcomes for immediate impact and memorability.
+        - Report Info: AI Feature Comparison -> Goal: Compare -> Viz: Side-by-side cards -> Justification: Clearly contrasts the "included" vs. "add-on" AI models, a key strategic point.
+        - Report Info: Feature Matrix -> Goal: Organize -> Viz: HTML Table -> Justification: Provides a structured, scannable reference for functional differences like device management.
+        - Report Info: Migration Process -> Goal: Organize/Show Process -> Viz: HTML/CSS Flowchart -> Justification: Makes the abstract concept of migration disruption tangible and visually easy to grasp.
+        - Library/Method: Chart.js for canvas charting; all other visuals are structured HTML with Tailwind CSS.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #7a5195, #ef5675);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .kpi-card {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+            border: 1px solid #e5e7eb;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 500px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 500px;
+            }
+        }
+        .flow-step {
+            position: relative;
+            padding: 1rem 1.5rem;
+            background-color: white;
+            border: 2px solid #ef5675;
+            color: #ef5675;
+            font-weight: 600;
+            border-radius: 0.75rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .flow-arrow::after {
+            content: '▼';
+            font-size: 2rem;
+            color: #bc5090;
+            line-height: 1;
+            display: block;
+            margin: 0.5rem 0;
+        }
+        .stable-step {
+             background-color: #003f5c;
+             border-color: #374c80;
+             color: white;
+        }
+        .section-heading {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #003f5c;
+        }
+        .section-subheading {
+            font-size: 1.125rem;
+            text-align: center;
+            max-width: 48rem;
+            margin: 0 auto 3rem auto;
+            color: #374c80;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto px-4 py-12 md:py-20">
+
+        <header class="text-center mb-20">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">
+                <span class="text-gray-500">KTB's Platform Crossroads:</span><br>
+                <span class="gradient-text">Google vs. Microsoft</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                An infographic visualizing the strategic choice for 160,000 users, focusing on ROI, AI capabilities, and user impact.
+            </p>
+        </header>
+
+        <section id="verdict" class="mb-20">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 border-t-8 border-amber-500">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">The Strategic Verdict</h2>
+                <p class="text-center text-xl text-gray-600 mb-8">Based on a holistic analysis, the clear recommendation is to:</p>
+                <div class="text-center text-2xl md:text-4xl font-extrabold p-6 rounded-lg bg-gradient-to-r from-blue-900 to-purple-800 text-white">
+                    Retain & Further Leverage Google Workspace
+                </div>
+            </div>
+        </section>
+
+        <section id="financials" class="mb-20">
+            <h2 class="section-heading">The Financial Bottom Line</h2>
+            <p class="section-subheading">While base license fees seem close, a true Total Cost of Ownership (TCO) analysis, including essential add-ons and migration costs, reveals a dramatically different financial picture.</p>
+            
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-12">
+                <h3 class="text-xl font-bold text-center mb-4 text-gray-700">Annual Cost Comparison for 160,000 Users</h3>
+                <div class="chart-container">
+                    <canvas id="costComparisonChart"></canvas>
+                </div>
+                <p class="text-center text-sm text-gray-500 mt-4">This chart illustrates how adding Microsoft Teams and Copilot AI significantly increases the annual cost for Office 365, while Google's advanced AI is included in its competitive price.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="kpi-card">
+                    <p class="text-lg font-semibold text-gray-500">Google Workspace ROI</p>
+                    <p class="text-6xl font-extrabold text-green-500 my-2">336%</p>
+                    <p class="text-lg font-semibold text-gray-700">Payback in <span class="font-bold">&lt;6 Months</span></p>
+                </div>
+                <div class="kpi-card">
+                    <p class="text-lg font-semibold text-gray-500">Microsoft 365 ROI (General)</p>
+                    <p class="text-6xl font-extrabold text-blue-500 my-2">162%</p>
+                    <p class="text-lg font-semibold text-gray-700">Payback in <span class="font-bold">7 Months</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ai" class="mb-20">
+            <h2 class="section-heading">The AI Advantage</h2>
+            <p class="section-subheading">For an organization focused on AI, the delivery model is as important as the capability. Google integrates advanced AI at no extra cost, promoting widespread adoption.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg border-l-8 border-green-500">
+                    <h3 class="text-2xl font-bold text-gray-800">Google Workspace</h3>
+                    <p class="text-lg font-semibold text-green-600 mb-4">Gemini AI: INCLUDED</p>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start"><span class="mr-3 text-green-500 font-bold text-xl">✔</span><span>Pervasive AI assistance in Gmail, Docs, Sheets, and Meet.</span></li>
+                        <li class="flex items-start"><span class="mr-3 text-green-500 font-bold text-xl">✔</span><span>Democratizes AI tools for all 160,000 users from day one.</span></li>
+                        <li class="flex items-start"><span class="mr-3 text-green-500 font-bold text-xl">✔</span><span>No additional per-user cost for core generative AI features.</span></li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg border-l-8 border-red-500">
+                    <h3 class="text-2xl font-bold text-gray-800">Office 365 E1</h3>
+                    <p class="text-lg font-semibold text-red-600 mb-4">Copilot AI: $30/user/mo ADD-ON</p>
+                     <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start"><span class="mr-3 text-red-500 font-bold text-xl">✖</span><span>Creates a significant cost barrier to widespread AI adoption.</span></li>
+                        <li class="flex items-start"><span class="mr-3 text-red-500 font-bold text-xl">✖</span><span>Potential for a "two-tier" workforce of AI haves and have-nots.</span></li>
+                        <li class="flex items-start"><span class="mr-3 text-red-500 font-bold text-xl">✖</span><span>Adds up to $57.6M annually for full deployment.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="mb-20">
+             <h2 class="section-heading">Functionality Showdown</h2>
+             <p class="section-subheading">Beyond the core apps, key differences in device management and application access create distinct value propositions.</p>
+             <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="p-4 font-bold text-gray-600">Feature</th>
+                            <th class="p-4 font-bold text-green-700">Google Workspace Ent. Starter</th>
+                            <th class="p-4 font-bold text-blue-700">Office 365 E1</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 font-semibold">Core Apps</td>
+                            <td class="p-4">Robust web-first suite with offline access</td>
+                            <td class="p-4">Web-only apps, no desktop versions</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 font-semibold">Device Management</td>
+                            <td class="p-4"><span class="font-bold text-green-600">INCLUDED:</span> Advanced endpoint management</td>
+                            <td class="p-4"><span class="font-bold text-red-600">LIMITED:</span> Basic tools only, requires add-ons</td>
+                        </tr>
+                         <tr class="hover:bg-gray-50">
+                            <td class="p-4 font-semibold">Meeting Features</td>
+                            <td class="p-4">250 users, recording, noise cancellation</td>
+                            <td class="p-4">Requires Teams add-on for full functionality</td>
+                        </tr>
+                    </tbody>
+                </table>
+             </div>
+        </section>
+
+        <section id="impact">
+            <h2 class="section-heading">The Human Cost of Change</h2>
+            <p class="section-subheading">A platform switch for 160,000 people is a massive change management challenge. The cost of disruption, retraining, and potential productivity loss is immense.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold mb-6 text-red-700">Path 1: Migrate to Office 365</h3>
+                    <div class="flex flex-col items-center space-y-0">
+                        <div class="flow-step">1. Complex Data Migration</div>
+                        <div class="flow-arrow"></div>
+                        <div class="flow-step">2. Application Re-Configuration</div>
+                        <div class="flow-arrow"></div>
+                        <div class="flow-step">3. Massive User Retraining</div>
+                        <div class="flow-arrow"></div>
+                        <div class="flow-step">4. Inevitable Productivity Dip</div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold mb-6 text-green-700">Path 2: Retain Google Workspace</h3>
+                     <div class="flex flex-col items-center space-y-4">
+                        <div class="stable-step flow-step">✅ User Familiarity</div>
+                        <div class="stable-step flow-step">✅ Workflow Continuity</div>
+                        <div class="stable-step flow-step">✅ No Migration Disruption</div>
+                        <div class="stable-step flow-step">✅ Zero Retraining Costs</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const wrapLabel = (label) => {
+                const maxLength = 16;
+                if (label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + word).length > maxLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = '';
+                    }
+                    currentLine += word + ' ';
+                }
+                lines.push(currentLine.trim());
+                return lines;
+            };
+            
+            const costData = {
+                googleBase: 11.52,
+                officeBase: 10.08,
+                teamsAddon: 20.16 - 10.08,
+                copilotAddon: 57.6,
+            };
+
+            const ctx = document.getElementById('costComparisonChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [wrapLabel('Google Workspace Ent. Starter'), wrapLabel('Office 365 E1'), wrapLabel('O365 E1 + Teams'), wrapLabel('O365 E1 + Teams + Copilot')],
+                    datasets: [{
+                        label: 'Total Annual Cost (Millions USD)',
+                        data: [
+                            costData.googleBase,
+                            costData.officeBase,
+                            costData.officeBase + costData.teamsAddon,
+                            costData.officeBase + costData.teamsAddon + costData.copilotAddon
+                        ],
+                        backgroundColor: [
+                            '#7a5195',
+                            '#003f5c',
+                            '#374c80',
+                            '#ef5675'
+                        ],
+                        borderColor: [
+                            '#7a5195',
+                            '#003f5c',
+                            '#374c80',
+                            '#ef5675'
+                        ],
+                        borderWidth: 1,
+                        borderRadius: 5,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    if (Array.isArray(label)) {
+                                      return label.join(' ');
+                                    } else {
+                                      return label;
+                                    }
+                                },
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label = 'Cost: ';
+                                    }
+                                    if (context.parsed.x !== null) {
+                                        label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.x) + 'M';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Total Annual Cost (in Millions of USD)',
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            },
+                            grid: {
+                                display: true,
+                                color: '#e5e7eb'
+                            }
+                        },
+                        y: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
