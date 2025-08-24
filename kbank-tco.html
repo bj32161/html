@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Proposal for Kasikorn Bank: Google Workspace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutral Harmony -->
+    <!-- Application Structure Plan: A top-down narrative SPA. Starts with a high-level Executive Summary and key savings metrics. Users can scroll or use the navigation to dive deeper into specific sections: 1. Current State Analysis (MS Costs), 2. Proposed Google Solutions (Option 1 & 2), 3. Interactive Financial Deep Dive (with charts and toggles for 3/5-year views), 4. Feature & Security Comparison, and 5. Recommendation. This structure allows a CTO to get the key info upfront but provides detailed, interactive data for analysts, making it easy to consume for different audiences. -->
+    <!-- Visualization & Content Choices: Current MS Cost -> Goal: Establish Baseline -> Viz: Key Metric Cards -> Interaction: Static -> Justification: Clear, immediate understanding of current spend. | Cost Savings -> Goal: Compare Options -> Viz: Grouped Bar Chart (Chart.js) -> Interaction: Toggle between 3-year and 5-year TCV -> Justification: Visually impactful comparison of multi-year savings. | Feature Comparison -> Goal: Organize & Compare -> Viz: Structured HTML Table -> Interaction: None -> Justification: Clear, direct comparison of specific features, especially for security. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #333;
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+        }
+        .nav-link.active {
+            color: #1a73e8;
+            border-bottom-color: #1a73e8;
+        }
+        .kpi-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-800">
+                <span class="text-[#4285F4]">G</span><span class="text-[#DB4437]">o</span><span class="text-[#F4B400]">o</span><span class="text-[#4285F4]">g</span><span class="text-[#0F9D58]">l</span><span class="text-[#DB4437]">e</span> Workspace Proposal
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#summary" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Summary</a>
+                <a href="#analysis" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Financials</a>
+                <a href="#features" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Features</a>
+                <a href="#recommendation" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Recommendation</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section id="summary" class="mb-24 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">A Strategic Partnership for Kasikorn Bank</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                An interactive proposal to modernize your digital workplace, enhance security, and unlock significant savings by migrating from Microsoft 365 to Google Workspace.
+            </p>
+        </section>
+
+        <section class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">Executive Summary</h2>
+                <p class="text-md text-gray-500 mt-2">The transition to Google Workspace is built on four key pillars of value.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="kpi-card text-center">
+                    <div class="text-4xl text-green-600 mb-2">💰</div>
+                    <h3 class="text-xl font-semibold mb-2">Massive Cost Savings</h3>
+                    <p class="text-gray-600">Achieve up to 68% savings, reallocating budget towards core banking innovations.</p>
+                </div>
+                <div class="kpi-card text-center">
+                    <div class="text-4xl text-blue-600 mb-2">🛡️</div>
+                    <h3 class="text-xl font-semibold mb-2">Elevated Security</h3>
+                    <p class="text-gray-600">Transition to Google's integrated, zero-trust security model for a superior posture.</p>
+                </div>
+                <div class="kpi-card text-center">
+                    <div class="text-4xl text-yellow-500 mb-2">✨</div>
+                    <h3 class="text-xl font-semibold mb-2">AI-Powered Future</h3>
+                    <p class="text-gray-600">Embed Gemini AI directly into workflows at no extra cost to drive innovation.</p>
+                </div>
+                <div class="kpi-card text-center">
+                    <div class="text-4xl text-red-500 mb-2">🤝</div>
+                    <h3 class="text-xl font-semibold mb-2">Transformative Collaboration</h3>
+                    <p class="text-gray-600">Move to a cloud-native, real-time environment to foster unprecedented speed and agility.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="analysis" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">Comparative Financial Analysis</h2>
+                <p class="text-md text-gray-500 mt-2">Explore the significant cost savings over 3 and 5-year terms. The first year of service is provided free of charge.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                <div class="flex justify-center mb-8">
+                    <div class="bg-gray-100 p-1 rounded-full flex space-x-1">
+                        <button id="3yearBtn" class="px-6 py-2 rounded-full text-sm font-semibold bg-white text-blue-600 shadow">3-Year Term</button>
+                        <button id="5yearBtn" class="px-6 py-2 rounded-full text-sm font-semibold text-gray-600">5-Year Term</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="savingsChart"></canvas>
+                </div>
+                <div id="summary-cards" class="mt-12 grid md:grid-cols-3 gap-6 text-center">
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">Feature & Security Deep Dive</h2>
+                 <p class="text-md text-gray-500 mt-2">A direct comparison of critical security, compliance, and productivity features.</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="py-3 px-4 font-semibold text-sm text-gray-600">Feature Category</th>
+                            <th class="py-3 px-4 font-semibold text-sm text-gray-600">Microsoft 365 (Current)</th>
+                            <th class="py-3 px-4 font-semibold text-sm text-gray-600">Google Workspace (Proposed)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b bg-blue-50/30"><td colspan="3" class="py-2 px-4 font-bold text-blue-800">Identity & Access Management</td></tr>
+                        <tr><td class="py-3 px-4">Single Sign-On (SSO)</td><td class="py-3 px-4">✅ (via Entra ID)</td><td class="py-3 px-4">✅ (via Cloud Identity Premium)</td></tr>
+                        <tr><td class="py-3 px-4">Context-Aware Access</td><td class="py-3 px-4">✅ (Entra ID P1 in E3)</td><td class="py-3 px-4">✅ (Superior Granularity)</td></tr>
+                        <tr class="border-b bg-blue-50/30"><td colspan="3" class="py-2 px-4 font-bold text-blue-800">Endpoint Management</td></tr>
+                        <tr><td class="py-3 px-4">Advanced MDM</td><td class="py-3 px-4">✅ (via Intune in E3)</td><td class="py-3 px-4">✅ (via Cloud Identity Premium)</td></tr>
+                        <tr class="border-b bg-blue-50/30"><td colspan="3" class="py-2 px-4 font-bold text-blue-800">Threat Protection</td></tr>
+                        <tr><td class="py-3 px-4">Advanced Anti-Phishing/Malware</td><td class="py-3 px-4">✅ (Defender for O365)</td><td class="py-3 px-4">✅ (Built-in, AI-powered)</td></tr>
+                         <tr><td class="py-3 px-4">Security Investigation Sandbox</td><td class="py-3 px-4">✅ (Defender for O365)</td><td class="py-3 px-4">✅ (Security Investigation Tool)</td></tr>
+                        <tr class="border-b bg-blue-50/30"><td colspan="3" class="py-2 px-4 font-bold text-blue-800">Information Governance</td></tr>
+                        <tr><td class="py-3 px-4">eDiscovery & Legal Hold</td><td class="py-3 px-4">✅ (Purview in E3)</td><td class="py-3 px-4">✅ (Google Vault in Ent. Std.)</td></tr>
+                        <tr><td class="py-3 px-4">Data Loss Prevention (DLP)</td><td class="py-3 px-4">✅ (Purview in E3)</td><td class="py-3 px-4">✅ (DLP for Gmail/Drive in Ent. Std.)</td></tr>
+                        <tr class="border-b bg-blue-50/30"><td colspan="3" class="py-2 px-4 font-bold text-blue-800">AI & Productivity</td></tr>
+                        <tr><td class="py-3 px-4">Generative AI Assistant</td><td class="py-3 px-4">❌ (Costly Add-on: Copilot)</td><td class="py-3 px-4">✅ (Gemini Included in Ent. Std.)</td></tr>
+                        <tr><td class="py-3 px-4">Real-time Collaboration</td><td class="py-3 px-4">Limited (File-based)</td><td class="py-3 px-4">✅ (Cloud-native, simultaneous)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="recommendation" class="text-center">
+             <h2 class="text-3xl font-bold text-gray-800">Recommendation & Next Steps</h2>
+             <p class="text-md text-gray-500 mt-2 max-w-3xl mx-auto">We strongly recommend Option 2 for a superior user experience and maximum long-term value, delivering over $21M in savings over five years.</p>
+            <div class="mt-12 flex justify-center gap-4">
+                <a href="#" class="bg-blue-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-blue-700 transition-colors">Schedule Technical Deep-Dive</a>
+                <a href="#" class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full border border-blue-600 hover:bg-blue-50 transition-colors">Define Proof-of-Concept</a>
+            </div>
+        </section>
+
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const DATA = {
+                users: { e1: 14198, e3: 19075 },
+                costs: {
+                    ms: { e1_pupm: 14, e3_pupm: 20.50 },
+                    google: { fl_starter: 5, ent_starter: 11, ent_std: 27, cip: 6 }
+                },
+                discounts: {
+                    '3': [1, 0.60, 0.55],
+                    '5': [1, 0.65, 0.63, 0.60, 0.55]
+                }
+            };
+
+            const calculateCosts = () => {
+                const msAnnual = (DATA.users.e1 * DATA.costs.ms.e1_pupm * 12) + (DATA.users.e3 * DATA.costs.ms.e3_pupm * 12);
+
+                const googleAnnualListOption1 = (DATA.users.e1 * (DATA.costs.google.fl_starter + DATA.costs.google.cip) * 12) + (DATA.users.e3 * DATA.costs.google.ent_std * 12);
+                const googleAnnualListOption2 = (DATA.users.e1 * (DATA.costs.google.ent_starter + DATA.costs.google.cip) * 12) + (DATA.users.e3 * DATA.costs.google.ent_std * 12);
+
+                const tcv3 = {
+                    ms: msAnnual * 3,
+                    option1: DATA.discounts['3'].reduce((acc, d, i) => i > 0 ? acc + (googleAnnualListOption1 * (1 - d)) : acc, 0),
+                    option2: DATA.discounts['3'].reduce((acc, d, i) => i > 0 ? acc + (googleAnnualListOption2 * (1 - d)) : acc, 0)
+                };
+
+                const tcv5 = {
+                    ms: msAnnual * 5,
+                    option1: DATA.discounts['5'].reduce((acc, d, i) => i > 0 ? acc + (googleAnnualListOption1 * (1 - d)) : acc, 0),
+                    option2: DATA.discounts['5'].reduce((acc, d, i) => i > 0 ? acc + (googleAnnualListOption2 * (1 - d)) : acc, 0)
+                };
+                
+                return { tcv3, tcv5 };
+            };
+
+            const costData = calculateCosts();
+            let currentTerm = '3';
+
+            const formatCurrency = (value) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
+            
+            const ctx = document.getElementById('savingsChart').getContext('2d');
+            const savingsChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Projected Microsoft Cost', 'Google Option 1 TCV', 'Google Option 2 TCV (Recommended)'],
+                    datasets: [{
+                        label: 'Total Contract Value (TCV)',
+                        data: [],
+                        backgroundColor: ['#DB4437', '#F4B400', '#4285F4'],
+                        borderRadius: 8,
+                        borderSkipped: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return formatCurrency(context.raw);
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + (value / 1000000) + 'M';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const updateChart = (term) => {
+                const data = term === '3' ? costData.tcv3 : costData.tcv5;
+                savingsChart.data.datasets[0].data = [data.ms, data.option1, data.option2];
+                savingsChart.options.plugins.title = { display: true, text: `${term}-Year Total Contract Value Comparison` };
+                savingsChart.update();
+                updateSummaryCards(term);
+            };
+
+            const updateSummaryCards = (term) => {
+                const data = term === '3' ? costData.tcv3 : costData.tcv5;
+                const savingsOpt1 = data.ms - data.option1;
+                const savingsPctOpt1 = (savingsOpt1 / data.ms * 100).toFixed(1);
+                const savingsOpt2 = data.ms - data.option2;
+                const savingsPctOpt2 = (savingsOpt2 / data.ms * 100).toFixed(1);
+
+                const summaryContainer = document.getElementById('summary-cards');
+                summaryContainer.innerHTML = `
+                    <div class="kpi-card">
+                        <h4 class="font-semibold text-gray-500 text-sm">Projected MS Cost</h4>
+                        <p class="text-3xl font-bold text-gray-800">${formatCurrency(data.ms)}</p>
+                    </div>
+                    <div class="kpi-card">
+                        <h4 class="font-semibold text-gray-500 text-sm">Option 2 Savings</h4>
+                        <p class="text-3xl font-bold text-green-600">${formatCurrency(savingsOpt2)}</p>
+                        <p class="text-sm text-green-600 font-medium">(${savingsPctOpt2}% Savings)</p>
+                    </div>
+                    <div class="kpi-card">
+                        <h4 class="font-semibold text-gray-500 text-sm">Option 1 Savings</h4>
+                        <p class="text-3xl font-bold text-yellow-600">${formatCurrency(savingsOpt1)}</p>
+                        <p class="text-sm text-yellow-600 font-medium">(${savingsPctOpt1}% Savings)</p>
+                    </div>
+                `;
+            };
+            
+            const threeYearBtn = document.getElementById('3yearBtn');
+            const fiveYearBtn = document.getElementById('5yearBtn');
+
+            threeYearBtn.addEventListener('click', () => {
+                currentTerm = '3';
+                threeYearBtn.classList.add('bg-white', 'text-blue-600', 'shadow');
+                fiveYearBtn.classList.remove('bg-white', 'text-blue-600', 'shadow');
+                updateChart(currentTerm);
+            });
+
+            fiveYearBtn.addEventListener('click', () => {
+                currentTerm = '5';
+                fiveYearBtn.classList.add('bg-white', 'text-blue-600', 'shadow');
+                threeYearBtn.classList.remove('bg-white', 'text-blue-600', 'shadow');
+                updateChart(currentTerm);
+            });
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 60) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            updateChart(currentTerm);
+        });
+    </script>
+</body>
+</html>

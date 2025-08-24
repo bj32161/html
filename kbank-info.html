@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: A Strategic Proposal for Kasikorn Bank</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Brilliant Blues -->
+    <!-- Narrative Structure Plan: The infographic follows a persuasive top-down narrative for an executive audience. It starts with a powerful headline and the most impactful KPI (Total Savings) to grab attention. It then flows logically: 1. Establish the current problem (High MS Costs). 2. Present the solution (Two Google Options). 3. Provide the core evidence (Interactive Financial Comparison Chart). 4. Detail the key value-adds (AI & Security). 5. Conclude with a clear recommendation. This structure quickly delivers the "what" and "why," then allows the user to explore the "how." -->
+    <!-- Visualization Choices: Current Spend -> Goal: Inform -> Viz: Single Big Number Card -> Justification: Immediately establishes the baseline cost. | Savings KPIs -> Goal: Inform -> Viz: Multiple Big Number Cards -> Justification: Highlights the most compelling financial outcomes upfront. | Financial Comparison -> Goal: Compare -> Viz: Bar Chart (Chart.js) -> Justification: Provides a clear, powerful visual comparison of the multi-year costs, which is the core of the proposal. | Feature Comparison -> Goal: Organize/Compare -> Viz: Styled HTML Cards/Table -> Justification: Presents qualitative data (security/AI features) in a structured, easily digestible format. All implemented without SVG/Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0F4F8; /* Light Blue-Gray Background */
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #0A57E5, #043AB6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .kpi-card {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid #E2E8F0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(10, 87, 229, 0.1), 0 10px 10px -5px rgba(10, 87, 229, 0.04);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 450px;
+            max-height: 60vh;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto px-6 py-12 md:py-20">
+
+        <!-- Section 1: Hero -->
+        <section class="text-center mb-20">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">
+                <span class="text-gradient">Transform & Save</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                A strategic proposal for Kasikorn Bank to unlock unprecedented savings and innovation by migrating from Microsoft 365 to Google Workspace.
+            </p>
+        </section>
+
+        <!-- Section 2: High-Level KPIs -->
+        <section class="mb-20">
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="kpi-card text-center md:col-span-1">
+                    <p class="text-base font-medium text-gray-500 mb-2">5-Year Savings (Option 1)</p>
+                    <p class="text-5xl font-bold text-[#DB324D]">$22.7M</p>
+                    <p class="text-2xl font-semibold text-gray-700">64.3%</p>
+                </div>
+                <div class="kpi-card text-center md:col-span-1 bg-[#0A57E5] text-white">
+                    <p class="text-base font-medium text-blue-200 mb-2">5-Year Savings (Recommended)</p>
+                    <p class="text-5xl font-bold">$21.1M</p>
+                    <p class="text-2xl font-semibold opacity-90">59.7%</p>
+                </div>
+                <div class="kpi-card text-center md:col-span-1">
+                    <p class="text-base font-medium text-gray-500 mb-2">3-Year Savings (Recommended)</p>
+                    <p class="text-5xl font-bold text-[#DB324D]">$13.5M</p>
+                    <p class="text-2xl font-semibold text-gray-700">63.7%</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Current State & Proposed Solution -->
+        <section class="mb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1 kpi-card">
+                    <h2 class="text-2xl font-bold mb-4 text-center">Current Microsoft 365 Spend</h2>
+                    <p class="text-center text-gray-600 mb-6">Kasikorn Bank's current annual investment for 33,273 employees.</p>
+                    <p class="text-6xl font-extrabold text-center text-gradient">$7.07M</p>
+                    <p class="text-center font-semibold text-gray-500">Annually</p>
+                </div>
+                <div class="lg:col-span-2 bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
+                    <h2 class="text-2xl font-bold mb-4 text-center">The Proposed Google Workspace Solutions</h2>
+                    <p class="text-center text-gray-600 mb-6">Two tailored options designed to maximize value and user experience, replacing your E1 and E3 licenses.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-6 rounded-lg border">
+                            <h3 class="font-bold text-lg">Option 1: Max Savings</h3>
+                            <p class="text-sm text-gray-600 mt-1"><span class="font-semibold">E1 Users →</span> Frontline Starter + CIP</p>
+                            <p class="text-sm text-gray-600"><span class="font-semibold">E3 Users →</span> Enterprise Standard</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                            <h3 class="font-bold text-lg text-blue-800">Option 2: Recommended</h3>
+                            <p class="text-sm text-blue-700 mt-1"><span class="font-semibold">E1 Users →</span> Enterprise Starter + CIP</p>
+                            <p class="text-sm text-blue-700"><span class="font-semibold">E3 Users →</span> Enterprise Standard</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Financial Deep Dive Chart -->
+        <section class="mb-20 bg-white p-8 rounded-2xl border border-gray-200 shadow-lg">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold">Multi-Year Cost Comparison</h2>
+                <p class="text-md text-gray-600 mt-2">This chart visualizes the profound savings over a 5-year term. The Google partnership includes the first year of service completely free of charge.</p>
+            </div>
+            <div class="chart-container">
+                <canvas id="savingsChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Section 5: Value-Add Comparison -->
+        <section>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">Beyond Savings: A Superior Platform</h2>
+                <p class="text-md text-gray-600 mt-2">The migration to Google Workspace is also a significant upgrade in technology, security, and innovation.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="kpi-card">
+                     <h3 class="text-2xl font-bold mb-4">The Gemini AI Advantage 💎</h3>
+                     <p class="text-gray-600 mb-4">While Microsoft positions Copilot as a costly add-on, Google embeds powerful, enterprise-grade Gemini AI into Workspace at <span class="font-bold text-[#043AB6]">no extra cost</span> for 19,075 users.</p>
+                     <ul class="space-y-2 text-sm">
+                        <li class="flex items-start"><span class="text-blue-600 mr-2">✓</span> <span><span class="font-semibold">"Help me write":</span> Instantly draft client emails, reports, and policies.</span></li>
+                        <li class="flex items-start"><span class="text-blue-600 mr-2">✓</span> <span><span class="font-semibold">"Take notes for me":</span> Auto-generate meeting summaries and action items in Google Meet.</span></li>
+                        <li class="flex items-start"><span class="text-blue-600 mr-2">✓</span> <span><span class="font-semibold">PDF Analysis:</span> Instantly summarize and query complex financial documents in Drive.</span></li>
+                     </ul>
+                </div>
+                <div class="kpi-card">
+                    <h3 class="text-2xl font-bold mb-4">Elevated Security Posture 🛡️</h3>
+                    <p class="text-gray-600 mb-4">Replace bundled Microsoft products with Google's integrated, cloud-native, zero-trust security architecture for a more cohesive and manageable defense.</p>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-start"><span class="text-blue-600 mr-2">✓</span> <span><span class="font-semibold">Cloud Identity Premium</span> directly replaces and enhances Entra ID for identity management.</span></li>
+                        <li class="flex items-start"><span class="text-blue-600 mr-2">✓</span> <span><span class="font-semibold">Built-in AI Protection</span> replaces Defender for O365 with industry-leading threat detection.</span></li>
+                        <li class="flex items-start"><span class="text-blue-600 mr-2">✓</span> <span><span class="font-semibold">Google Vault & DLP</span> replaces Purview for robust information governance and compliance.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const data = {
+                ms_tcv_5_year: 35388570,
+                google_tcv_5_year_opt1: 12645465,
+                google_tcv_5_year_opt2: 14250406,
+            };
+
+            const ctx = document.getElementById('savingsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'Projected 5-Year Microsoft Cost', 
+                        ['Google Workspace', 'Option 1 TCV'], 
+                        ['Google Workspace', 'Option 2 TCV (Recommended)']
+                    ],
+                    datasets: [{
+                        label: 'Total Contract Value (USD)',
+                        data: [data.ms_tcv_5_year, data.google_tcv_5_year_opt1, data.google_tcv_5_year_opt2],
+                        backgroundColor: [
+                            '#D1D5DB', // Gray for MS
+                            '#FBBF24', // Yellow for Option 1
+                            '#0A57E5'  // Blue for Option 2
+                        ],
+                        borderColor: [
+                            '#9CA3AF',
+                            '#F59E0B',
+                            '#043AB6'
+                        ],
+                        borderWidth: 2,
+                        borderRadius: 8,
+                        borderSkipped: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: '#111827',
+                            titleFont: { size: 14, weight: 'bold' },
+                            bodyFont: { size: 12 },
+                            padding: 12,
+                            cornerRadius: 6,
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    if (Array.isArray(label)) {
+                                      return label.join(' ');
+                                    } else {
+                                      return label;
+                                    }
+                                },
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.x !== null) {
+                                        label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(context.parsed.x);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    return '$' + (value / 1000000) + 'M';
+                                },
+                                font: {
+                                    weight: '600'
+                                }
+                            },
+                            grid: {
+                                color: '#E5E7EB'
+                            }
+                        },
+                        y: {
+                           ticks: {
+                                font: {
+                                    size: 14,
+                                    weight: '600'
+                                }
+                           },
+                           grid: {
+                                display: false
+                           }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
